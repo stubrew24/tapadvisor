@@ -1,0 +1,4 @@
+<h1>All Taprooms</h1>
+<% @taprooms.each do |tap| %>
+    <p><%= link_to tap.brewery, taproom_path(tap) %></p>
+  <% end %>

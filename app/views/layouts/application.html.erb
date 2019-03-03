@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tapadvisor</title>
+    <title>Tap Advisor</title>
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <!-- Bootstrap CSS -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.3/examples/starter-template/starter-template.css" />
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <%= link_to "Tap Advisor", taprooms_path, class: "navbar-brand" %>
+
+    <div class="navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "New", new_taproom_path, :class => "nav-link"  %>
+        </li>
+      </ul>
+    </div>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </nav>
+
+
+    <main role="main" class="container">
+      <div class="starter-template">
+        <%= yield %>
+      </div>
+    </main>
+
+    </body>
 </html>
