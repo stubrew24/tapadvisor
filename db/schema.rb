@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_01_165725) do
+ActiveRecord::Schema.define(version: 2019_03_03_201052) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
@@ -35,6 +35,9 @@ ActiveRecord::Schema.define(version: 2019_03_01_165725) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.string "password_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
