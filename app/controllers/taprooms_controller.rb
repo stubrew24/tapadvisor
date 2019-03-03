@@ -1,5 +1,8 @@
 class TaproomsController < ApplicationController
 
+  def welcome
+  end
+
   def index
     @taprooms = Taproom.all
   end

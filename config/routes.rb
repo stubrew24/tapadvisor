@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'taprooms#welcome'
+
   get 'taprooms/search' => 'taprooms#search'
 
   resources :reviews
