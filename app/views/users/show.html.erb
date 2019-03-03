@@ -1,4 +1,7 @@
 <h1><%= @user.name %></h1>
+<p>
+  <%= gravtar_for(@user) %>
+</p>
 
 <h2>Reviews</h2>
 <% if @reviews.any? %>

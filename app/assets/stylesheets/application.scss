@@ -15,6 +15,10 @@
  */
 @import "bootstrap";
 
+body {
+  background-color: #eee;
+}
+
 .navbar {
   background-color: #f3d250
 }
@@ -30,4 +34,25 @@
 
 #query{
   border-color: #f3d250
+}
+
+.debug_dump{
+  position: fixed;
+  padding: 20px;
+  background-color: rgba(0,0,0,0.7);
+  border: 2px solid #000;
+  color: #00ff00;
+  border-radius: 5px;
+  width: 80%;
+  left: 10%;
+  bottom: 2%;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+    text-align: left;
+  }
 }
