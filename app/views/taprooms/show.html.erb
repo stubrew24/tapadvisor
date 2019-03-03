@@ -7,3 +7,20 @@
   <strong>Bio</strong><br>
   <%= @taproom.bio %>
 </p>
+
+<br>
+<h2>Reviews</h2>
+<p>
+  <% if @reviews.any? %>
+    <% @reviews.each do |review| %>
+      <% @user = User.find(review.user_id) %>
+      <%= review.comment %><br>
+      <strong>Rating: </strong><%= review.rating %><br>
+      <strong>Visted: </strong><%= review.visit_date.strftime("%d %b %Y") %><br>
+      <strong>By: </strong><%= link_to @user.name, user_path(@user) %>
+    <% end %>
+  <% else %>
+    <p>No reviews yet.<br>
+    <%= link_to 'Be the first...', new_taproom_review_path(@taproom) %></p>
+  <% end %>
+</p>

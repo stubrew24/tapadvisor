@@ -1,4 +1,8 @@
 <h1>All Taprooms</h1>
-<% @taprooms.each do |tap| %>
+<% if @taprooms.count > 0 %>
+  <% @taprooms.each do |tap| %>
     <p><%= link_to tap.brewery, taproom_path(tap) %></p>
   <% end %>
+<% else %>
+  <p>No results.</p>
+<% end %>

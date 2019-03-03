@@ -19,6 +19,7 @@ class TaproomsController < ApplicationController
 
   def show
     @taproom = Taproom.find(params[:id])
+    @reviews = Review.where(taproom_id: @taproom.id)
   end
 
   def edit
@@ -35,11 +36,15 @@ class TaproomsController < ApplicationController
     end
   end
 
+  def search
+    @taprooms = Taproom.where('brewery LIKE ?', "%#{params[:query]}%")
+    render :index
+  end
 
   private
 
   def taproom_params
-    params.require(:taproom).permit(:brewery, :location, :opening_times, :bio)
+    params.require(:taproom).permit(:brewery, :location, :opening_times, :bio, :query)
   end
 
 end
