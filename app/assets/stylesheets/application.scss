@@ -14,39 +14,103 @@
  *
  */
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
-body {
-  background-color: #eee;
-}
-
-.navbar {
-  background-color: #f3d250
-}
-.nav-link, .navbar-brand {
-  color: #000
-}
-
-.btn {
-  background-color: #f3d250;
-  border-color: #fff;
-  color: #fff;
+:root {
+  --yellow: #f3d250;
+  --light-blue: #90ccf4;
+  --dark-blue: #5da2d5;
+  --light-red: #f78888;
+  --grey: #ececec;
 }
 
-#query{
-  border-color: #f3d250
-}
 
 .debug_dump{
+  visibility: hidden;
   position: fixed;
   padding: 20px;
-  background-color: rgba(0,0,0,0.7);
-  border: 2px solid #000;
-  color: #00ff00;
+  background-color: rgba(0,0,0,0.3);
+  color: rgba(100,255,100,0.8);
   border-radius: 5px;
   width: 80%;
   left: 10%;
   bottom: 2%;
 }
+
+
+/* universal */
+
+body {
+  padding-top: 6em;
+  font-family: 'Raleway', sans-serif;
+}
+
+.taptitle{
+  font-family: 'Bungee Shade', cursive;
+  font-size: 2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bungee', cursive;
+  text-align: center;
+  margin-bottom: 1em;
+}
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+.navbar {
+  background-color: var(--yellow)
+}
+
+.nav-link, .navbar-brand {
+  color: #000
+}
+
+.nav-link:hover, .navbar-brand:hover {
+  color: var(--light-blue)!important;
+}
+
+.btn {
+  background-color: rgba(0,0,0,0);
+  border-color: #000;
+  color: #000;
+  margin: auto;
+}
+
+.btn:hover, .btn:active, .btn:visited {
+  background-color: var(--yellow)!important;
+  color: #000;
+}
+
+.navbar .btn:hover, .navbar .btn:active, .navbar .btn:visited {
+  background-color: var(--light-blue)!important;
+  color: #000!important;
+}
+
+.disabled:hover{
+  background-color: rgba(0,0,0,0)!important;
+}
+
+#query{
+  border-color: #000;
+  color: #000;
+}
+
 
 #error_explanation {
   color: red;
@@ -55,4 +119,10 @@ body {
     margin: 0 0 30px 0;
     text-align: left;
   }
+}
+
+.ghost {
+  background-color: rgba(0,0,0,0);
+  border-color: #000;
+  color: #000;
 }

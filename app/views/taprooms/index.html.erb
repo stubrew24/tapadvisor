@@ -1,8 +1,19 @@
 <h1>All Taprooms</h1>
 <% if @taprooms.count > 0 %>
-  <% @taprooms.each do |tap| %>
-    <p><%= link_to tap.brewery, taproom_path(tap) %></p>
-  <% end %>
+  <div class="card-group">
+    <% @taprooms.each do |tap| %>
+      <div class="col-sm-3">
+      <div class="card text-center">
+        <img src="<%= tap.image %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= tap.brewery %></h5>
+          <p class="card-text"><%= tap.stars %></p>
+          <%= link_to 'View Taproom', taproom_path(tap), class: "btn btn-primary" %>
+        </div>
+      </div>
+      </div>
+    <% end %>
+  </div>
 <% else %>
   <p>No results.</p>
 <% end %>

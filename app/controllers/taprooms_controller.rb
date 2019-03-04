@@ -44,10 +44,15 @@ class TaproomsController < ApplicationController
     render :index
   end
 
+  def favourite
+    Favourite.create(user_id: params[:user_id], taproom_id: params[:taproom_id])
+    redirect_to taproom_path(params[:taproom_id])
+  end
+
   private
 
   def taproom_params
-    params.require(:taproom).permit(:brewery, :location, :opening_times, :bio, :query)
+    params.require(:taproom).permit(:brewery, :location, :opening_times, :bio, :query, :img_url)
   end
 
 end

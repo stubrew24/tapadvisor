@@ -1,23 +1,47 @@
-<h1><%= @taproom.brewery %></h1>
-<p>
-  <strong>Location</strong>
-  <%= @taproom.location %><br>
-  <strong>Opening Times</strong>
-  <%= @taproom.opening_times %><br>
-  <strong>Bio</strong><br>
-  <%= @taproom.bio %>
-</p>
+<div class="card mb-3" >
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="<%= @taproom.image %>" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h1 class="card-title"><%= @taproom.brewery %></h1>
+        <div class="float-right">
+          <%= form_tag taprooms_favourite_path, method: :get do %>
+            <%= hidden_field_tag 'taproom_id', @taproom.id %>
+            <%= hidden_field_tag 'user_id', current_user.id %>
+            <% if !@taproom.favourited?(current_user.id) %>
+              <%= submit_tag "Favourite", class: "btn ghost"%>
+            <% else %>
+              <%= submit_tag "Favourited", class: "btn disabled", disabled: true %>
+            <% end %>
+          <% end %>
+        </div>
+        <p class="card-text"><strong>Rating: </strong><%= @taproom.stars %></p>
+        <p class="card-text"><strong>Location: </strong><%= @taproom.location %></p>
+        <p class="card-text"><strong>Opening Times: </strong><%= @taproom.opening_times %></p>
+        <p class="card-text"><%= @taproom.bio %></p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<br>
+<br><br>
 <h2>Reviews</h2>
-<p>
   <% if @reviews.any? %>
+    <p class="text-center"><%= link_to 'Add a review', new_taproom_review_path(@taproom) %></p>
     <% @reviews.each do |review| %>
       <% @user = User.find(review.user_id) %>
-      <%= review.comment %><br>
-      <strong>Rating: </strong><%= review.rating %><br>
-      <strong>Visted: </strong><%= review.visit_date.strftime("%d %b %Y") %><br>
-      <strong>By: </strong><%= link_to @user.name, user_path(@user) %>
+
+      <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <p class="card-text"><%= review.comment %></p>
+            <span class="card-text"><small><strong>Rating: </strong><%= review.rating %></small></span><br>
+            <span class="card-text"><small><strong>Visted: </strong><%= review.visit_date.strftime("%d %b %Y") %></small></span><br>
+            <span class="card-text"><small><strong>By: </strong><%= link_to @user.name, user_path(@user) %></small></span>
+          </div>
+      </div>
+
     <% end %>
   <% else %>
     <p>No reviews yet.<br>

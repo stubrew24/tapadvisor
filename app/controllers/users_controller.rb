@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reviews = Review.where(user_id: @user.id)
+    @favourites = Favourite.where(user_id: @user.id)
   end
 
   def new
@@ -16,8 +17,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to Tap Advisor, #{@user.name.split.first}"
-      redirect_to user_path(@user)
+      log_in @user
+      flash[:success] = "Welcome to TapAdvisor"
+      redirect_to @user
     else
       render :new
     end

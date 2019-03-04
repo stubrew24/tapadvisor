@@ -9,38 +9,47 @@
     <!-- Bootstrap CSS -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.3/examples/starter-template/starter-template.css" />
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md fixed-top">
-      <%= link_to "Tap Advisor", taprooms_path, class: "navbar-brand" %>
+    <header>
+      <nav class="navbar navbar-expand-md fixed-top">
+        <%= link_to "Tap Advisor", taprooms_path, class: "navbar-brand taptitle" %>
 
-      <div class="navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <%= link_to "New", new_taproom_path, :class => "nav-link"  %>
-          </li>
-        </ul>
-      </div>
+        <div class="navbar-collapse">
+        </div>
 
-      <%= form_tag(taprooms_search_path, method: "get", class: "form-inline my-2 my-lg-0") do %>
-        <%= text_field_tag 'query', nil, placeholder: 'Search Taprooms', class: "form-control mr-sm-2 text-field-col"%>
-        <%= submit_tag 'Search', class: "btn btn-secondary my-2 my-sm-0"%>
-      <% end %>
-
-    </nav>
+        <%= form_tag(taprooms_search_path, method: "get", class: "form-inline my-2 my-lg-0") do %>
+          <%= text_field_tag 'query', nil, placeholder: 'Search Taprooms', class: "form-control mr-sm-2 text-field-col"%>
+          <%= submit_tag 'Search', class: "btn btn-secondary my-2 my-sm-0"%>
+        <% end %>
 
 
-    <main role="main" class="container">
-      <div class="starter-template">
+        &nbsp;&nbsp;
+        <% if logged_in? %>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <%= link_to "Profile", current_user, class: "dropdown-item" %>
+              <%= link_to "Sign Out", logout_path, class: "dropdown-item" %>
+            </div>
+          </div>
+          <% else %>
+            <%= link_to "Log in", login_path, class: "btn btn-primary" %>
+          <% end %>
+
+      </nav>
+    </header>
+
+
+    <div class="container">
         <% flash.each do |message_type, message| %>
           <div class="alert alert-<%= message_type %>"><%= message %></div>
         <% end %>
         <%= yield %>
-      </div>
-    </main>
+    </div>
       <%= debug(params) if Rails.env.development? %>
-
     </body>
 </html>

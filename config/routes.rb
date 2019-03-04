@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
 
-  root to: 'taprooms#welcome'
+  get 'sessions/new'
+  root to: 'taprooms#index'
 
   get 'taprooms/search' => 'taprooms#search'
+  get 'taprooms/favourite' => 'taprooms#favourite'
   get 'signup' => 'users#new'
+
+  # login/logout routes
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'newlogin' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
 
   resources :reviews
   resources :users
