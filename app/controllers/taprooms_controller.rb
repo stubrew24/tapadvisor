@@ -40,7 +40,7 @@ class TaproomsController < ApplicationController
   end
 
   def search
-    @taprooms = Taproom.where('brewery LIKE ?', "%#{params[:query]}%")
+    @taprooms = Taproom.where('brewery LIKE ? OR location LIKE ? OR bio LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%")
     render :index
   end
 
