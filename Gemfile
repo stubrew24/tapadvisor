@@ -25,8 +25,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'sqlite3', '~> 1.3.13'
-
 gem 'pg', '0.20.0'
 
 # Use ActiveStorage variant
@@ -46,6 +44,7 @@ gem 'jquery-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'sqlite3', '~> 1.3.13'
 end
 
 group :development do
