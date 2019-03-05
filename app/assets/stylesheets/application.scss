@@ -28,6 +28,7 @@
 
 
 .debug_dump{
+  display: none;
   position: fixed;
   padding: 20px;
   background-color: rgba(0,0,0,0.3);
@@ -44,6 +45,7 @@
 body {
   padding-top: 6em;
   font-family: 'Raleway', sans-serif;
+  // background-color: #999
 }
 
 .taptitle{

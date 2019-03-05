@@ -9,4 +9,8 @@ class Review < ApplicationRecord
   def brewery
     Taproom.find(self.taproom_id).brewery
   end
+
+  def stars
+    "#{9733.chr(Encoding::UTF_8)}" * self.rating + "#{9734.chr(Encoding::UTF_8)}" * (5 - self.rating)
+  end
 end

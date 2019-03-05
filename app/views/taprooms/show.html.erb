@@ -6,17 +6,19 @@
     <div class="col-md-8">
       <div class="card-body">
         <h1 class="card-title"><%= @taproom.brewery %></h1>
-        <div class="float-right">
-          <%= form_tag taprooms_favourite_path, method: :get do %>
-            <%= hidden_field_tag 'taproom_id', @taproom.id %>
-            <%= hidden_field_tag 'user_id', current_user.id %>
-            <% if !@taproom.favourited?(current_user.id) %>
-              <%= submit_tag "Favourite", class: "btn ghost"%>
-            <% else %>
-              <%= submit_tag "Favourited", class: "btn disabled", disabled: true %>
+        <% if logged_in? %>
+          <div class="float-right">
+            <%= form_tag taprooms_favourite_path, method: :get do %>
+              <%= hidden_field_tag 'taproom_id', @taproom.id %>
+              <%= hidden_field_tag 'user_id', current_user.id %>
+              <% if !@taproom.favourited?(current_user.id) %>
+                <%= submit_tag "Favourite", class: "btn ghost"%>
+              <% else %>
+                <%= submit_tag "Favourited", class: "btn disabled", disabled: true %>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
         <p class="card-text"><strong>Rating: </strong><%= @taproom.stars %></p>
         <p class="card-text"><strong>Location: </strong><%= @taproom.location %></p>
         <p class="card-text"><strong>Opening Times: </strong><%= @taproom.opening_times %></p>

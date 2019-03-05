@@ -12,11 +12,18 @@
   <div class="col-md-6">
     <h2 class="text-left">Reviews</h2>
     <% if @reviews.any? %>
-      <% @reviews.each do |review| %>
-        <p>
-          <%= link_to review.brewery, taproom_path(review.taproom_id)%><br>
-          <%= review.comment %></p>
-      <% end %>
+      <div class="list-group">
+        <% @reviews.each do |review| %>
+          <a href="<%= taproom_path(review.taproom_id) %>" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1"><%= review.taproom.brewery %></h5>
+              <small><%= review.visit_date.strftime("%d %b %Y") %></small>
+            </div>
+            <p class="mb-1"><%= review.comment %></p>
+            <small>Rating: <%= review.stars %></small>
+          </a>
+        <% end %>
+      </div>
     <% else %>
       <p>No Reviews Yet.</p>
     <% end %>
@@ -24,10 +31,13 @@
   <div class="col-md-6">
     <h2 class="text-left">Favourites</h2>
     <% if @favourites.any? %>
+      <div class="list-group">
       <% @favourites.each do |favourite| %>
-        <p>
-          <%= link_to favourite.taproom.brewery, taproom_path(favourite.taproom_id)%><br>
+        <a href="<%= taproom_path(favourite.taproom_id) %>" class="list-group-item list-group-item-action ">
+          <h5 class="text-left"><%= favourite.taproom.brewery %></h5>
+        </a>
       <% end %>
+      </div>
     <% else %>
       <p>No favourites yet.</p>
     <% end %>

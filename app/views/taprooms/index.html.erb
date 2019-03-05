@@ -1,4 +1,9 @@
-<h1>All Taprooms</h1>
+<% if params[:query] %>
+  <h1>Seach Results</h1>
+<% else %>
+  <h1>All Taprooms</h1>
+<% end %>
+
 <% if @taprooms.count > 0 %>
   <div class="card-group">
     <% @taprooms.each do |tap| %>

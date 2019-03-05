@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :review_logged_in?, only: [:new, :create]
 
   def new
     @taproom = Taproom.find(params[:taproom_id])
@@ -9,7 +10,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @taproom = Taproom.find(params[:review][:taproom_id])
     if @review.save
-      redirect_to review_path(@review)
+      redirect_to taproom_path(@taproom)
     else
       render :new
     end
@@ -24,5 +25,12 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:taproom_id, :rating, :comment, :visit_date, :user_id)
+  end
+
+  def review_logged_in?
+    if !logged_in?
+      flash[:danger] = "You must be signed in to leave a review"
+      redirect_to login_path
+    end
   end
 end
