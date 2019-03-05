@@ -1,4 +1,5 @@
 class TaproomsController < ApplicationController
+  before_action :admin?, only: [:new, :create]
 
   def welcome
   end
@@ -53,6 +54,10 @@ class TaproomsController < ApplicationController
 
   def taproom_params
     params.require(:taproom).permit(:brewery, :location, :opening_times, :bio, :query, :img_url)
+  end
+
+  def admin?
+
   end
 
 end

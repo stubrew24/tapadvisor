@@ -29,6 +29,7 @@ class ReviewsController < ApplicationController
 
   def review_logged_in?
     if !logged_in?
+      store_location
       flash[:danger] = "You must be signed in to leave a review"
       redirect_to login_path
     end
