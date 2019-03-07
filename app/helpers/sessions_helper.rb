@@ -4,14 +4,6 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
-  def is_admin(user)
-    session[:admin] = user.id
-  end
-
-  def is_taproom(user)
-    session[:taproom] = user.taproom_id
-  end
-
   def current_user
     if (user_id = session[:user_id])
       @current_user ||= User.find_by(id: session[:user_id])
@@ -21,12 +13,6 @@ module SessionsHelper
         log_in user
         @current_user = user
       end
-    end
-  end
-
-  def taproom_user
-    if (taproom_id = session[:taproom])
-     @taproom_user ||= Taproom.find_by(id: session[:taproom])
     end
   end
 
@@ -40,9 +26,8 @@ module SessionsHelper
 
   def log_out
     forget(current_user)
-    session.clear
+    session.delete(:user_id)
     @current_user = nil
-    @taproom_user = nil
   end
 
 

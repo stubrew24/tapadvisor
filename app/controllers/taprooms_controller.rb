@@ -5,7 +5,11 @@ class TaproomsController < ApplicationController
   end
 
   def index
-    @taprooms = Taproom.all
+    if current_user
+      redirect_to home_path
+    else
+      @taprooms = Taproom.all
+    end
   end
 
   def new
@@ -50,6 +54,11 @@ class TaproomsController < ApplicationController
     redirect_to taproom_path(params[:taproom_id])
   end
 
+  def all
+    @taprooms = Taproom.all
+    render :index
+  end
+
   private
 
   def taproom_params
@@ -57,7 +66,6 @@ class TaproomsController < ApplicationController
   end
 
   def admin?
-
+    redirect_to root_path unless current_user && current_user.admin
   end
-
 end
