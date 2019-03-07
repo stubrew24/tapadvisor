@@ -1,0 +1,6 @@
+<h1>Feedback</h1>
+<% @feedback.each do |fb| %>
+  <p>
+    <pre><%= human_date_time(fb.created_at) %></em> - <%= fb.content %></pre>
+  </p>
+<% end %>

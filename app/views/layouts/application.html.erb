@@ -2,16 +2,16 @@
 <html>
   <head>
     <title>Tap Advisor</title>
-    <!-- Required meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <!-- Bootstrap CSS -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <!-- NAVIGATION BAR -->
     <header>
       <nav class="navbar navbar-expand-md fixed-top">
         <%= link_to "Tap Advisor", root_path, class: "navbar-brand taptitle" %>
@@ -52,13 +52,41 @@
       </nav>
     </header>
 
-
+    <!-- MAIN CONTENT -->
     <div class="container">
         <% flash.each do |message_type, message| %>
           <div class="alert alert-<%= message_type %>"><%= message %></div>
         <% end %>
         <%= yield %>
     </div>
-      <%= debug(params) if Rails.env.development? %>
-    </body>
+
+    <!-- FEEBACK BUTTON -->
+    <div>
+      <button type="button" name="button" class="btn btn-primary feedback" data-toggle="modal" data-target="#exampleModalCenter">Feedback</button>
+    </div>
+
+    <!-- FEEDBACK FORM -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">FEEDBACK</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <div class="form-group">
+              <div class="modal-body">
+                <%= form_tag feedback_path do %>
+                <%= text_area_tag "feedback[content]", nil, method: "post", class: "form-control"%>
+                <div class="modal-footer">
+                  <%= submit_tag 'Send', class: "btn btn-primary"%><% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
 </html>

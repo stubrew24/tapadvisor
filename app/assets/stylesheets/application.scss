@@ -135,3 +135,14 @@ textarea {
 .card-margin {
   margin-bottom: 2em;
 }
+
+.feedback {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0.4;
+}
+
+.feedback:hover {
+  opacity: 1;
+}

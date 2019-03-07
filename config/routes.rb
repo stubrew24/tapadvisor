@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   get 'users' => 'users#manage'
 
+  post 'feedback' => 'feedback#create'
+  get 'feedback' => 'feedback#index'
+
   get 'home' => 'users#index'
   get 'index' => 'taprooms#all'
 
