@@ -33,6 +33,7 @@
             </button>
               <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdownMenuLink">
               <% if current_user && current_user.admin %>
+                <%= link_to "Manage Users", users_path, class: "dropdown-item" %>
                 <%= link_to "Add Taproom", new_taproom_path, class: "dropdown-item" %>
               <% end %>
               <% if current_user && current_user.taproom_id %>

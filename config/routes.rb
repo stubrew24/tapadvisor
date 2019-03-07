@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'sessions/new'
   root to: 'taprooms#index'
 
+  get 'users' => 'users#manage'
+
   get 'home' => 'users#index'
   get 'index' => 'taprooms#all'
 

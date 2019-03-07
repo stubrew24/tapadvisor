@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :favourites
   has_many :taprooms, through: :favourites
+  has_many :posts, through: :taprooms 
   belongs_to :taproom, optional: true
 
   before_save { self.email = email.downcase }

@@ -27,6 +27,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'pg', '0.20.0'
 
+gem 'yaml_db'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

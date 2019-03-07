@@ -49,12 +49,12 @@ body {
 }
 
 .taptitle{
-  font-family: 'Bungee Shade', cursive;
+  font-family: 'Bungee Shade', sans-serif;
   font-size: 2em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Bungee', cursive;
+  font-family: 'Bungee', sans-serif;
   text-align: center;
   margin-bottom: 1em;
 }
@@ -128,15 +128,6 @@ textarea {
   color: #000;
 }
 
-<<<<<<< HEAD
 .card-columns{
   column-count: 4;
-=======
-.card-margin {
-  margin-bottom: 1.6em;
-}
-
-.card-img-top{
-  object-fit: cover;
->>>>>>> updating-users
 }

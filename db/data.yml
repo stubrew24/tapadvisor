@@ -1,0 +1,333 @@
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - '2019-03-05 14:38:09.002692'
+    - '2019-03-05 14:38:09.002692'
+
+---
+favourites:
+  columns:
+  - id
+  - user_id
+  - taproom_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 4
+    - 6
+    - '2019-03-05 15:10:33.838405'
+    - '2019-03-05 15:10:33.838405'
+  - - 2
+    - 4
+    - 5
+    - '2019-03-05 15:10:37.552055'
+    - '2019-03-05 15:10:37.552055'
+  - - 3
+    - 4
+    - 8
+    - '2019-03-06 13:17:28.868799'
+    - '2019-03-06 13:17:28.868799'
+  - - 4
+    - 5
+    - 6
+    - '2019-03-07 15:59:16.561739'
+    - '2019-03-07 15:59:16.561739'
+  - - 5
+    - 4
+    - 11
+    - '2019-03-07 16:49:14.275493'
+    - '2019-03-07 16:49:14.275493'
+  - - 6
+    - 4
+    - 7
+    - '2019-03-07 16:49:53.069641'
+    - '2019-03-07 16:49:53.069641'
+  - - 7
+    - 4
+    - 10
+    - '2019-03-07 16:50:43.644382'
+    - '2019-03-07 16:50:43.644382'
+
+---
+posts:
+  columns:
+  - id
+  - title
+  - content
+  - taproom_id
+  - img_url
+  - created_at
+  - updated_at
+  - published
+  records: 
+  - - 1
+    - Something Something Dark Side
+    - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    - 6
+    - 
+    - '2019-03-06 14:17:20.917978'
+    - '2019-03-07 16:59:14.900979'
+    - true
+  - - 2
+    - Something New
+    - bla bla bla
+    - 6
+    - 
+    - '2019-03-06 16:19:22.47873'
+    - '2019-03-07 16:59:14.879545'
+    - true
+  - - 3
+    - New Post From Brick
+    - 'Unpacked reserved sir offering bed judgment may and quitting speaking. Is do
+      be improved raptures offering required in replying raillery. Stairs ladies friend
+      by in mutual an no. Mr hence chief he cause. Whole no doors on hoped. Mile tell
+      if help they ye full name. '
+    - 7
+    - 
+    - '2019-03-07 16:48:12.044898'
+    - '2019-03-07 16:48:16.835271'
+    - true
+  - - 4
+    - 'Something '
+    - "In as name to here them deny wise this. As rapid woody my he me which. Men
+      but they fail shew just wish next put. Led all visitor musical calling nor her.
+      Within coming figure sex things are. Pretended concluded did repulsive education
+      smallness yet yet described. Had country man his pressed shewing. No gate dare
+      rose he. Eyes year if miss he as upon. \r\n"
+    - 11
+    - 
+    - '2019-03-07 16:48:59.867345'
+    - '2019-03-07 16:59:14.888931'
+    - true
+  - - 5
+    - nothing
+    - "Consulted he eagerness unfeeling deficient existence of. Calling nothing end
+      fertile for venture way boy. Esteem spirit temper too say adieus who direct
+      esteem. It esteems luckily mr or picture placing drawing no. Apartments frequently
+      or motionless on reasonable projecting expression. Way mrs end gave tall walk
+      fact bed. \r\n\r\nNow led tedious shy lasting females off. Dashwood marianne
+      in of entrance be on wondered possible building. Wondered sociable he carriage
+      in speedily margaret. Up devonshire of he thoroughly insensible alteration.
+      An mr settling occasion insisted distance ladyship so. Not attention say frankness
+      intention out dashwoods now curiosity. Stronger ecstatic as no judgment daughter
+      speedily thoughts. Worse downs nor might she court did nay forth these. \r\n\r\nCottage
+      out enabled was entered greatly prevent message. No procured unlocked an likewise.
+      Dear but what she been over gay felt body. Six principles advantages and use
+      entreaties decisively. Eat met has dwelling unpacked see whatever followed.
+      Court in of leave again as am. Greater sixteen to forming colonel no on be.
+      So an advice hardly barton. He be turned sudden engage manner spirit. "
+    - 10
+    - 
+    - '2019-03-07 16:50:33.79254'
+    - '2019-03-07 16:57:37.244821'
+    - true
+
+---
+reviews:
+  columns:
+  - id
+  - user_id
+  - taproom_id
+  - rating
+  - comment
+  - visit_date
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 4
+    - 6
+    - 5
+    - Great place
+    - '2018-03-24 00:00:00'
+    - '2019-03-05 15:10:55.170566'
+    - '2019-03-05 15:10:55.170566'
+  - - 2
+    - 4
+    - 5
+    - 2
+    - I've not been yet, but I'm still going to leave a bad review.
+    - '2019-01-01 00:00:00'
+    - '2019-03-05 15:11:33.589085'
+    - '2019-03-05 15:11:33.589085'
+  - - 3
+    - 4
+    - 8
+    - 5
+    - Great bunch of lads
+    - '2019-01-01 00:00:00'
+    - '2019-03-06 13:17:25.735457'
+    - '2019-03-06 13:17:25.735457'
+  - - 4
+    - 5
+    - 8
+    - 5
+    - Nice place
+    - '2018-05-01 00:00:00'
+    - '2019-03-06 13:18:33.563329'
+    - '2019-03-06 13:18:33.563329'
+  - - 5
+    - 8
+    - 5
+    - 4
+    - Bla bla bla
+    - '2018-05-01 00:00:00'
+    - '2019-03-07 10:19:53.365645'
+    - '2019-03-07 10:19:53.365645'
+
+---
+taprooms:
+  columns:
+  - id
+  - brewery
+  - location
+  - opening_times
+  - bio
+  - created_at
+  - updated_at
+  - img_url
+  records: 
+  - - 4
+    - Cloudwater
+    - 73 Enid Street
+    - Weds-Sun 15:00 - 22:00
+    - Our London tap room, 73 Enid Street, is nestled in a railway arch in Bermondsey.
+    - '2019-03-05 14:38:44.911458'
+    - '2019-03-07 15:03:42.019225'
+    - cloudwater.png
+  - - 5
+    - 'BBNo Peckham '
+    - Arches 1+2 Bellenden Business Park
+    - Fri 5pm-10.30pm, Sat 12pm-10.30pm, Sun 12pm-8pm
+    - BBNO Barrel Store Peckham
+    - '2019-03-05 14:38:44.913554'
+    - '2019-03-07 14:53:39.415471'
+    - no-image.jpg
+  - - 6
+    - Fourpure
+    - 'Bermondsey Trading Estate SE16 '
+    - Tues-Sun 12:00 - 20:00
+    - 'As you wander into the industrial style bar you find yourself right in the
+      heart of the action, confronted with the delightful aroma of hops, malt, and
+      freshly brewed wort. '
+    - '2019-03-05 14:38:44.91557'
+    - '2019-03-07 14:54:53.308575'
+    - no-image.jpg
+  - - 7
+    - Brick Brewery
+    - Blenheim Grove, London, SE15 4QL
+    - Tues-Thurs 17.00 - 22.00, Fri 17.00 - 00.00, Sat 12.00 - 00.00, Sun 13.00 -
+      21.00
+    - Craft beer microbrewery serving casks, kegs, bottles and specials.
+    - '2019-03-05 14:44:25.363066'
+    - '2019-03-07 14:56:03.50227'
+    - brick.jpg
+  - - 8
+    - Brews Company
+    - 105 Firhill Road
+    - Fri-Sun 17.00-22.00
+    - 'We started life in late 2016, when Mark and Stuart started brewing together
+      out of hours at UBREW - the UK''s first open brewery. '
+    - '2019-03-06 13:16:58.947304'
+    - '2019-03-07 14:56:56.291967'
+    - brews.jpg
+  - - 9
+    - The Barrel Project
+    - 80 Druid St, London, SE1 2HQ
+    - Wed-Fri 16.00 - 23.00, Sat 11.00 - 23.00, Sun 12.00 - 19.00
+    - The Barrel Project is a joint tap room, blendery, and conditioning space for
+      the London Beer Factory. Located on the famous Bermondsey Beer Mile, the Barrel
+      Project is nestled under an old rail archway and contains nearly 200 oak barrels
+      for aging.
+    - '2019-03-06 13:26:07.76044'
+    - '2019-03-07 14:57:09.880747'
+    - barrelproject.jpg
+  - - 10
+    - Partizan
+    - 4 Raymouth Rd, London SE16 2DB
+    - Fri  17.00-23.00, Sat 11.00-20.00
+    - "We serve a varying range of beers. All friendly people and animals are welcome.\r\nEnjoy
+      a beer here with us or take some to enjoy at home. We accept card and cash."
+    - '2019-03-07 15:24:31.653046'
+    - '2019-03-07 15:28:56.41161'
+    - no-image.jpg
+  - - 11
+    - EeBria
+    - 15 Almond Rd, London SE16 3LR
+    - Friday 5pm-9pm and Saturday 11am-8pm
+    - We usually have 8 beers on keg and at least 40 more beers in bottle/can in the
+      fridge. There's a free shuffleboard and an old school arcade machine to play
+      whilst enjoying your beers and we're dog, pram and wheelchair friendly.
+    - '2019-03-07 15:30:18.542074'
+    - '2019-03-07 15:34:52.921836'
+    - no-image.jpg
+
+---
+users:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  - email
+  - password_digest
+  - remember_digest
+  - admin
+  - taproom_id
+  records: 
+  - - 4
+    - Stu Sewell
+    - '2019-03-05 14:38:44.791308'
+    - '2019-03-07 16:50:11.512994'
+    - sewelly@gmail.com
+    - "$2a$10$1h/y8a52L1YhHTfVGiimeeRGKhE.Mj7lrAdjCFFJ8ZkZF69y5VM7S"
+    - 
+    - true
+    - 10
+  - - 5
+    - Jana Garina
+    - '2019-03-05 14:38:44.850389'
+    - '2019-03-07 16:44:38.942853'
+    - j.garina@gmail.com
+    - "$2a$10$zMNnsq1r1xLQ8Oaae50fDuQmRz7T41xtfe5NZll03a.5x6oTCFHNi"
+    - 
+    - false
+    - 
+  - - 6
+    - Mark Sandberg
+    - '2019-03-05 14:38:44.908416'
+    - '2019-03-07 16:45:50.198759'
+    - sandbadger256@gmail.com
+    - "$2a$10$OLa0olMkOP7kIMrIu0SvueGtNa8.Vnaf1cPrePzhUzXCcKf8CSK46"
+    - 
+    - false
+    - 8
+  - - 7
+    - George Price
+    - '2019-03-05 15:21:08.886924'
+    - '2019-03-07 16:45:46.617097'
+    - george.price@gmail.com
+    - "$2a$10$xTv0VIG.mBnQaUhpnbWt2eGSIFFp/Bju4jnKuDbU84UDTAvOjd8xm"
+    - 
+    - false
+    - 
+  - - 8
+    - Dave Prince
+    - '2019-03-07 10:19:32.165277'
+    - '2019-03-07 10:19:32.165277'
+    - d.prince@gmail.com
+    - "$2a$10$a.Tsq9gTfLaS2rhQ4rrzOOUO8Za0fkzZR.UzRPcvRWuWLiVxyQ7RC"
+    - 
+    - false
+    - 

@@ -2,10 +2,11 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update]
   before_action :correct_user, only: [:edit, :update]
   before_action :new_user, only: [:new, :create]
+  before_action :admin? , only: [:manage]
 
   def index
     @taprooms = Taproom.all
-    @posts = Post.all
+    @posts = current_user.posts.where(published: true).order('id DESC')
   end
 
   def show
@@ -36,17 +37,25 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = "Profile updated."
-      redirect_to user_path(@user)
+      flash[:success] = "#{@user.name.split(" ").first}'s profile updated."
+      if current_user.admin
+        redirect_to users_path
+      else
+        redirect_to user_path(@user)
+      end
     else
       render :edit
     end
   end
 
+  def manage
+    @users = User.order('name ASC').all
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :taproom_id)
   end
 
   def logged_in_user
@@ -65,6 +74,12 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to root_path unless current_user?(@user)
+    redirect_to root_path unless (current_user?(@user) || current_user.admin)
+  end
+
+  def admin?
+    if !(current_user && current_user.admin)
+      redirect_to home_path
+    end
   end
 end

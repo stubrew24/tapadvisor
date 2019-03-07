@@ -26,4 +26,4 @@
 </ul>
 <div class="text-center"><strong><%= "UNPUBLISHED" if !@post.published %></strong></div>
 
-  <p class="lead"><%= @post.content %></p>
+  <p class="lead"><%= simple_format(@post.content) %></p>

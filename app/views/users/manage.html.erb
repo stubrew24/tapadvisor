@@ -1,0 +1,29 @@
+<h1>Manage Users</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Admin?</th>
+      <th scope="col">Taproom</th>
+      <th scope="col"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @users.each do |user| %>
+      <tr>
+        <%= form_for(user) do |f| %>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= f.check_box :admin %></td>
+          <td><%= f.collection_select :taproom_id, Taproom.all, :id, :brewery, :include_blank => true %></td>
+          <td><%= f.submit 'save', class: "btn, btn-primary"%></td>
+        <% end %>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
