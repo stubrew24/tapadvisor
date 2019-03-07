@@ -1,10 +1,15 @@
 class TaproomsController < ApplicationController
+  before_action :admin?, only: [:new, :create]
 
   def welcome
   end
 
   def index
-    @taprooms = Taproom.all
+    if current_user
+      redirect_to home_path
+    else
+      @taprooms = Taproom.all
+    end
   end
 
   def new
@@ -49,10 +54,18 @@ class TaproomsController < ApplicationController
     redirect_to taproom_path(params[:taproom_id])
   end
 
+  def all
+    @taprooms = Taproom.all
+    render :index
+  end
+
   private
 
   def taproom_params
     params.require(:taproom).permit(:brewery, :location, :opening_times, :bio, :query, :img_url)
   end
 
+  def admin?
+    redirect_to root_path unless current_user && current_user.admin
+  end
 end

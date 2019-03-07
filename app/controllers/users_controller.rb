@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :new_user, only: [:new, :create]
 
   def index
-    @users = User.all
+    @taprooms = Taproom.all
+    @posts = Post.all
   end
 
   def show
@@ -19,7 +23,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome to TapAdvisor"
-      redirect_to @user
+      redirect_back_or @user
     else
       render :new
     end
@@ -31,8 +35,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    if @user.valid?
+    if @user.update(user_params)
+      flash[:success] = "Profile updated."
       redirect_to user_path(@user)
     else
       render :edit
@@ -43,5 +47,24 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please sign in"
+      redirect_to login_path
+    end
+  end
+
+  def new_user
+    if logged_in?
+      redirect_to current_user
+    end
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to root_path unless current_user?(@user)
   end
 end

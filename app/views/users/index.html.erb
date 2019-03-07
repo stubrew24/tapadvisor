@@ -1,5 +1,48 @@
-<h1>All Users</h1>
+<h1>Taproom Updates</h1>
+<div class="card" style="height: 300px; overflow: scroll;">
+  <ul class="list-group list-group-flush">
+    <% @posts.each do |post| %>
+      <li class="list-group-item">
+        <p><%= link_to post.taproom.brewery, taproom_path(post.taproom)%></p>
+        <p><%= post.content[0..120] %><% if post.content.length > 120 %> ... <a href='#' data-toggle='modal' data-target='#Modal<%= post.id %>'>read more</a><% end %></p>
+        <small class="text-muted">Posted: <%= human_date(post.updated_at) %></small>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
-<% @users.each do |user| %>
-  <p><%= link_to user.name, user_path(user) %></p>
+<% @posts.each do |posts| %>
+<div class="modal fade" id="Modal<%= posts.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= posts.taproom.brewery %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body"><%= posts.content %></div>
+      <div class="modal-footer">
+        <small class="text-muted">Posted: <%= human_date(posts.updated_at) %></small>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
+<br>
+<h1>Recently Added</h1>
+<p class="text-right"><%= link_to 'See All', index_path %></p>
+<div class="card-group">
+  <% @taprooms.each do |tap| %>
+    <div class="col-sm-3 card-margin">
+      <div class="card text-center">
+        <img src="<%= tap.image %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= tap.brewery %></h5>
+          <p class="card-text"><%= tap.stars %></p>
+          <%= link_to 'View Taproom', taproom_path(tap), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

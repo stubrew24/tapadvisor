@@ -1,3 +1,12 @@
-<h1>Update User</h1>
+<h1>Update Profile</h1>
 
 <%= render 'form' %>
+<br><br>
+<div class="row">
+  <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>
+    </div>
+  </div>
+</div>

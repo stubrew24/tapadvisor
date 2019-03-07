@@ -14,7 +14,7 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-md fixed-top">
-        <%= link_to "Tap Advisor", taprooms_path, class: "navbar-brand taptitle" %>
+        <%= link_to "Tap Advisor", root_path, class: "navbar-brand taptitle" %>
 
         <div class="navbar-collapse">
         </div>
@@ -29,10 +29,18 @@
         <% if logged_in? %>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Account
+              <%= current_user.name.split(" ").first %>
             </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+              <% if current_user && current_user.admin %>
+                <%= link_to "Add Taproom", new_taproom_path, class: "dropdown-item" %>
+              <% end %>
+              <% if current_user && current_user.taproom_id %>
+                <%= link_to "Taproom Posts", posts_path, class: "dropdown-item" %>
+                <%= link_to "Taproom Settings", edit_taproom_path(current_user.taproom_id), class: "dropdown-item" %>
+              <% end %>
               <%= link_to "Profile", current_user, class: "dropdown-item" %>
+              <%= link_to "Settings", edit_user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Sign Out", logout_path, class: "dropdown-item" %>
             </div>
           </div>
