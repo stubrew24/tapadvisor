@@ -5,17 +5,17 @@
 <% end %>
 
 <% if @taprooms.count > 0 %>
-  <div class="card-group">
+  <div class="card-columns">
     <% @taprooms.each do |tap| %>
-      <div class="col-sm-3">
+      <!-- <div class="col-sm-3"> -->
       <div class="card text-center">
-        <img src="<%= tap.image %>" class="card-img-top" alt="...">
+        <%= image_tag tap.img_url, class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-title"><%= tap.brewery %></h5>
           <p class="card-text"><%= tap.stars %></p>
           <%= link_to 'View Taproom', taproom_path(tap), class: "btn btn-primary" %>
         </div>
-      </div>
+      <!-- </div> -->
       </div>
     <% end %>
   </div>

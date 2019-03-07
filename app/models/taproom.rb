@@ -18,11 +18,11 @@ class Taproom < ApplicationRecord
     end
   end
 
-  def image
-    if !self.img_url
-      "http://stuartsewell.dev/imgs/no-image.jpg"
+  def img_url=(imgurl)
+    if imgurl.empty?
+      "no-image.jpg"
     else
-      img_url
+      imgurl
     end
   end
 end
