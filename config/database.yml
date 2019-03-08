@@ -1,9 +1,4 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
+
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -11,23 +6,20 @@ default: &default
 
 development:
   <<: *default
-  timeout: 5000
+  database: tapadvisor_development
   username: stuartsewell
   password:
   database: db/tapadvisor_development
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
-  timeout: 5000
+  database: tapadvisor_test
   username: stuartsewell
   password:
-  database: db/tapadvisor_test
+  database: db/tapadvisor_development
 
 production:
   <<: *default
   database: tapadvisor_production
   username: tapadvisor
-  password:
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
