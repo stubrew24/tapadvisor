@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :is_brewery?
   before_action :taproom_route?
 
   def index
@@ -58,15 +57,9 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :content, :taproom_id, :img_url)
   end
 
-  def is_brewery?
-    unless current_user && (current_user.taproom_id == params[:id] || current_user.admin)
-      redirect_to root_path
-    end
-  end
-
   def taproom_route?
-    if params[:taproom_id] || current_user.taproom_id
-      @tap_id = params[:taproom_id] || current_user.taproom_id
+    if current_user.taproom_id
+      @tap_id = current_user.taproom_id
     else
       redirect_to root_path
     end
